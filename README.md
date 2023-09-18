@@ -12,3 +12,5 @@ tech:
 players will login and create an account 
 the notes for each player and their lowest actions taken score will be saved in the data base 
 and a leader board at the start menu with the lowest actions taken of all the players 
+
+![image](https://github.com/pdporterman/startup/assets/144472299/75e72ba3-9ba2-4c05-878c-8aae4553a32b)
