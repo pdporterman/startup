@@ -2,12 +2,16 @@ body {
     display: flex;
     flex-direction: column;
     min-width: 375px;
+    background-color: #444;
   }
   
-  header {
+  header{
     flex: 0 80px;
+    display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-around;
+    color: white;
   }
   
   main {
@@ -16,6 +20,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
+    color: white;
   }
   
   footer {
@@ -30,9 +35,11 @@ body {
     list-style: none;
   }
   
-  .navbar-brand {
-    padding-left: 0.3em;
-    border-bottom: solid rgb(182, 182, 182) thin;
+  .img {
+    display: flex;
+    flex-direction: column;
+    max-height: 50%;
+    max-width: 50%;
   }
   
   menu .nav-item {
@@ -55,3 +62,7 @@ body {
     }
   }
   
+
+  border-white {
+    border: 1px solid white!important;
+  }
