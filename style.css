@@ -47,7 +47,7 @@ body {
   }
   
   footer a {
-    float: right;
+    float: left;
   }
   
   @media (max-height: 600px) {
