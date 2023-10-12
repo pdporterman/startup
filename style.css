@@ -9,8 +9,10 @@ body {
     flex: 0 80px;
     display: flex;
     flex-direction: column;
+    min-width: 100%;
     align-items: center;
     justify-content: space-around;
+    background-color: #000;
     color: white;
   }
 
@@ -47,7 +49,16 @@ h1{
   }
   
   footer {
-    flex: 0 30px;
+    flex: 0 80px;
+    display: flex;
+    flex-direction: column;
+    min-width: 100%;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #000;
+    color: white;
+    position: relative;
+   
   }
   
   menu {
