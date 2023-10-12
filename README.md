@@ -20,4 +20,4 @@ start up HTML: I created the three html pages, index is going to serve as the si
 
 start up CSS: I created a style CSS file, I changed the buttons from the default HTML buttons using bootstrap which I think made some clean looking buttons, I have set the H1 tags to use times new roman to hopefully make the text stand out from the other text, I used bootstrap to create the score board which can sort by name and score, I have created an out put box tht after adding JavaSript too should be able to hold a running list of all the moves from the player and give them their next option 
 
-after getting feedback I have added headers (containing a title for each page) and footers(containing the git hub repository link), there was also a note about my CSS diliviable but is that not the above section is there something I missed that needed to be added to the read me file?
+after getting feedback I have added headers (containing a title for each page) and footers(containing the git hub repository link)
