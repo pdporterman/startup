@@ -21,10 +21,21 @@
         </header>
         
 <main>
-    <output>Place holder output text</output> 
+    <script src="play.js"></script>
+    <script>
+        window.onload = function() {
+            if (select == 0){
+                select_suspect()
+                set_var("text_box");
+            }
+        };
+            
+    </script>
+    <output id="text_box">Place holder output text</output> 
+    <p id="moves">1) Move 2) Question 3) Accuse</p>
     <form method="get">
-        <input type="text" id="action" placeholder="Action" /><br>
-        <button class="btn btn-success" >Go!</button>
+        <input type="number" id="action" placeholder="Action" /><br>
+        <button id='startButton' onclick="which_function()" class="btn btn-success" type="button">Go!</button>
     </form>
     <a href="main.html" class="btn btn-danger btn-lg">Quit</a>
     <a href="index.html" class="btn btn-primary btn-sm border-white">Log Out</a>
