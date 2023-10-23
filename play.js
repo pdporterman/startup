@@ -5,6 +5,7 @@ var current = 5
 var room = Math.floor(Math.random() * 5)+1;
 var select = 0
 var func = 0
+var count = 0
 
 function select_suspect(){
     select = Math.floor(Math.random() * 4) + 1;
@@ -95,6 +96,7 @@ function get_action() {//func0
             document.getElementById("text_box").innerHTML +="<br>"+ ("who do you want to question?")
             document.getElementById("moves").textContent = "1) Cambell 2) Johnny 3) Sara 4) Kim"
             func = 2
+            count++
             }
             else {
                 search()
