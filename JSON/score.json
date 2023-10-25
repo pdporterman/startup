@@ -1,6 +1,7 @@
 [
     {
         "name": "bob",
+        "pass": "bob123",
         "moves": 145
     }
 ]

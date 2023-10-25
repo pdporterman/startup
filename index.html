@@ -6,12 +6,22 @@
     <title>StartUp</title>
     <link rel="icon" href="images/magnifying-glass.ico" />
     <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
-      crossorigin="anonymous"
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+        crossorigin="anonymous"
     />
     <link rel="stylesheet" href="style.css" />
+    <script>
+        fetch("JSON/score.json")
+    .then(response => response.json())
+    .then(data => {
+    localStorage.setItem("users", JSON.stringify(data));
+    })
+    .catch(error => {
+    console.error("Error fetching and storing JSON data: " + error);
+    });   
+    </script>
 </head>
 
 <body>
@@ -23,12 +33,13 @@
     <main>
     
     <img class="img" src="images/detective.png" alt="main pic for now">
-
+    <script src="login.js"></script>
     <form method="get" action="main.html">
-        <input type="text" id="name" placeholder="Username" /><br>
-        <input type="text" id="password" placeholder="Password" /><br>
-        <button class="btn btn-success" >Login</button>
+        <input type="text" id="name" placeholder="Username" required /><br>
+        <input type="text" id="password" placeholder="Password" required /><br>
+        <button class="btn btn-success">Login</button>
     </form>
+    <script>document.querySelector("form").addEventListener("submit", login);</script>
     </main>
 </body>
 <footer>
