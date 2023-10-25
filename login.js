@@ -8,7 +8,7 @@ function userExists(username, password) {
 function createUser(username, password, moves) {
     users.push({ name: username, pass: password, moves: moves }); 
     localStorage.setItem('users', JSON.stringify(users));
-    console.log(users)
+    console.log(users);
 }
 
 function login(event) {

@@ -6,7 +6,10 @@ var room = Math.floor(Math.random() * 5)+1;
 var select = 0
 var func = 0
 var count = 0
-var clear_rooms = ["clear","clear","clear","clear","clear"]
+var clear_rooms = ["The office is a dimly lit room with leather-bound books, antique furniture, and a faint scent of old paper","The kitchen is The heart of the mansion, bathed in warm light, where the clinking of silverware and simmering pots mingles with the lingering aroma of a freshly cooked meal.","The garage is dusty and cluttered space, filled with tools and forgotten memories","The foyer has an elegant entrance and is adorned with a grand chandelier, intricate rugs, and an antique piano","The library a sanctuary of knowledge, beckons with dark, polished woodwork and the subtle scent of ancient books. Candlelight flickers on the leather-bound spines","The main hall is a grand, with towering ceilings and faded portraits"]
+
+var players_best = 100
+var best_score = 5
 
 function select_suspect(){
     select = Math.floor(Math.random() * 4) + 1;
@@ -87,6 +90,7 @@ function accuse(){
     }
     else if (input == select){
         document.getElementById("moves").textContent = "YOU WIN! with " + count + " moves"
+        
     }
     else {
         document.getElementById("moves").textContent = "YOU LOSE"
@@ -121,7 +125,7 @@ function which_function(){
 function get_action() {//func0
     action = read_input()
     if (action == 1){
-        document.getElementById("text_box").innerHTML +="<br>"+ ("You are in " + rooms[current] + ". Where do you want to go?")
+        document.getElementById("text_box").innerHTML +="<br>"+ ("You are in " + rooms[current] + ". Where do you want to go?") + "<br>"
         document.getElementById("moves").textContent = "1) office 2) kitchen 3) garage 4) foyer 5) library 6) main hall"
         func = 1
         count++
@@ -164,4 +168,19 @@ function set_var(ID) {
         suspect = "Kim"
         weapon = "candel stick"
     } 
+}
+
+function high_score(count){
+    if (count < best_score){
+        best_score = count
+        alert('you have the top score!')
+    }
+    else if (count == best_score){
+        alert('you tied for the best score')
+    }
+    else if (count == players_best){
+        players_best = count
+        alert("you set a new personal best!")
+    }
+
 }
