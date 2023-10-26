@@ -19,6 +19,7 @@ function login(event) {
 
     if (userExists(inputUsername, inputPassword)) {
         alert('Login successful!');
+        localStorage.setItem('user_name', inputUsername);
         window.location.href = "main.html"; 
     } else {
         const confirmCreateUser = confirm("User does not exist. Do you want to create a new user?");

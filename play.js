@@ -154,7 +154,7 @@ function get_action() {//func0
 }
 
 function set_var(ID) {
-    document.getElementById(ID).innerHTML +="<br>"+("Step into the shoes of a seasoned detective as you investigate a chilling murder case involving a wealthy philanthropist. The prime suspects? The enigmatic and estranged children of the victim.  Can you unravel the web of deceit and uncover the truth in this high-stakes family feud?");
+    document.getElementById(ID).innerHTML +="<br>"+ localStorage.getItem('user_name') + (", Step into the shoes of a seasoned detective as you investigate a chilling murder case involving a wealthy philanthropist. The prime suspects? The enigmatic and estranged children of the victim.  Can you unravel the web of deceit and uncover the truth in this high-stakes family feud?");
     if (select === 1) {
         suspect = "Cambell"
         weapon = "knife"
