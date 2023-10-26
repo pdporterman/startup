@@ -9,7 +9,7 @@ var count = 0
 var clear_rooms = ["The office is a dimly lit room with leather-bound books, antique furniture, and a faint scent of old paper","The kitchen is The heart of the mansion, bathed in warm light, where the clinking of silverware and simmering pots mingles with the lingering aroma of a freshly cooked meal.","The garage is dusty and cluttered space, filled with tools and forgotten memories","The foyer has an elegant entrance and is adorned with a grand chandelier, intricate rugs, and an antique piano","The library a sanctuary of knowledge, beckons with dark, polished woodwork and the subtle scent of ancient books. Candlelight flickers on the leather-bound spines","The main hall is a grand, with towering ceilings and faded portraits"]
 
 var players_best = 100
-var best_score = 5
+var best_score = 25
 
 function select_suspect(){
     select = Math.floor(Math.random() * 4) + 1;
@@ -80,7 +80,22 @@ function search(){
     func = 0;
 }
 
-function accuse(){
+function high_score(){
+    if (count < best_score){
+        best_score = count
+        alert('you have the top score!')
+    }
+    else if (count == best_score){
+        alert('you tied for the best score')
+    }
+    else if (count == players_best){
+        players_best = count
+        alert("you set a new personal best!")
+    }
+
+}
+
+async function accuse(){
     input = read_input()
     func = 5
     if (input < 1 || input > 4){
@@ -90,7 +105,7 @@ function accuse(){
     }
     else if (input == select){
         document.getElementById("moves").textContent = "YOU WIN! with " + count + " moves"
-        high_score()
+        await high_score()
         
     }
     else {
@@ -169,19 +184,4 @@ function set_var(ID) {
         suspect = "Kim"
         weapon = "candel stick"
     } 
-}
-
-function high_score(){
-    if (count < best_score){
-        best_score = count
-        alert('you have the top score!')
-    }
-    else if (count == best_score){
-        alert('you tied for the best score')
-    }
-    else if (count == players_best){
-        players_best = count
-        alert("you set a new personal best!")
-    }
-
 }
