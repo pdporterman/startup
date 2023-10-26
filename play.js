@@ -90,6 +90,7 @@ function accuse(){
     }
     else if (input == select){
         document.getElementById("moves").textContent = "YOU WIN! with " + count + " moves"
+        high_score()
         
     }
     else {
@@ -170,7 +171,7 @@ function set_var(ID) {
     } 
 }
 
-function high_score(count){
+function high_score(){
     if (count < best_score){
         best_score = count
         alert('you have the top score!')
