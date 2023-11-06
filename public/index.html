@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>StartUp</title>
+        <link rel="icon" href="images/magnifying-glass.ico" />
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+            crossorigin="anonymous" />
+        <link rel="stylesheet" href="style.css" />
+        <script>
+        fetch("/api/scores")
+    .then(response => response.json())
+    .then(data => {
+    localStorage.setItem("users", JSON.stringify(data));
+    })
+    .catch(error => {
+    console.error("Error fetching and storing JSON data: " + error);
+});   
+</script>
+        <script>
+document.addEventListener("DOMContentLoaded", ()=> {
+    document.querySelector("form").addEventListener("submit", login);
+    
+})
+</script>
+</head>
+
+    <body>
+        <header>
+            <h1>Who Done It</h1>
+            <h2>(A Choose Your Own Adventure Murder Mystery)</h2>
+        </header>
+
+        <main>
+
+            <img class="img" src="images/detective.png" alt="main pic for now">
+            <form method="get" action="./main.html">
+                <input type="text" id="name" placeholder="Username" required /><br>
+                <input type="text" id="password" placeholder="Password" required /><br>
+                <button type="submit" id="submitLogin" class="btn btn-success">Login</button>
+            </form>
+        </main>
+    </body>
+    <footer>
+        <a href="https://github.com/pdporterman/startup" class="btn btn-warning">
+            GitHub</a>
+        </footer>
+<script type="module" src="./login.js"></script>
+</html>
