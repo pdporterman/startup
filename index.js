@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = 3000;
+const port = 4000;
 
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
@@ -42,6 +42,7 @@ let scores = [
       "moves": 145
   }
 ];
+
 function updateScores(newScore, scores) {
   let found = false;
   for (const [i, prevScore] of scores.entries()) {
