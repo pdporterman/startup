@@ -101,15 +101,14 @@ async function high_score(){
 async function post_score(score) {
     try {
         let body = JSON.parse(localStorage.getItem('user'));
+        console.log(body);
         body.moves = score
-        const response = await fetch('/api/score', {
-        method: 'POST',
-        headers: {'content-type': 'application/json'},
-        body: JSON.stringify(body),
-        });
+        await fetch('/api/score', {
+            method: 'POST',
+            headers: {'content-type': 'application/json'},
+            body: JSON.stringify(body),
+            }).catch(err=>console.log);
         // Store what the service gave us as the high scores
-        const scores = await response.json();
-        localStorage.setItem('scores', JSON.stringify(scores));
     } catch {
         // If there was an error then just track scores locally
         this.updateScoresLocal(newScore);
@@ -126,7 +125,7 @@ async function accuse(){
     }
     else if (input == select){
         document.getElementById("moves").textContent = "YOU WIN! with " + count + " moves"
-        await high_score()
+        await high_score();
         
     }
     else {

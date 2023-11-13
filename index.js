@@ -1,6 +1,22 @@
 const express = require('express');
+const { MongoClient } = require('mongodb');
+const config = require('./dbConfig.json');
 const app = express();
 const port = 4000;
+
+const url = `mongodb+srv://${config.userName}:${config.password}@${config.hostname}`;
+const client = new MongoClient(url);
+const db = client.db('startup');
+const collection = db.collection('users');
+
+// Test that you can connect to the database
+(async function testConnection() {
+await client.connect();
+await db.command({ ping: 1 });
+})().catch((ex) => {
+console.log(`Unable to connect to database with ${url} because ${ex.message}`);
+process.exit(1);
+});
 
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
@@ -18,13 +34,12 @@ app.use(`/api`, apiRouter);
 
 // GetScores
 apiRouter.get('/scores', (_req, res) => {
-  res.send(scores);
+  res.send(collection.find({}).toArray());
 });
 
 // SubmitScore
 apiRouter.post('/score', (req, res) => {
-  scores = updateScores(req.body, scores);
-  res.send(scores);
+  updateScores(req.body);
 });
 
 // Return the application's default page if the path is unknown
@@ -43,23 +58,10 @@ let scores = [
   }
 ];
 
-function updateScores(newScore, scores) {
-  let found = false;
-  for (const [i, prevScore] of scores.entries()) {
-    if (newScore.score > prevScore.score) {
-      scores.splice(i, 0, newScore);
-      found = true;
-      break;
-    }
-  }
-
-  if (!found) {
-    scores.push(newScore);
-  }
-
-  if (scores.length > 10) {
-    scores.length = 10;
-  }
-
-  return scores;
+function updateScores(newScore) {
+  collection.updateOne({name:newScore.name}, {
+    $min:{moves:newScore.moves}
+  }).then(({matchedCount})=>{
+    if (matchedCount == 0) collection.insertOne(newScore);
+  });
 }
