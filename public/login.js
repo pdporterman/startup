@@ -1,3 +1,4 @@
+"next"
 const MAX_MOVES = 100000;
 document.querySelector('#submitLogin').addEventListener('click', function(e) {
     e.preventDefault();
