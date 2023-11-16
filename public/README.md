@@ -28,4 +28,4 @@ Start up service: so I deployed the new simon then I created the node.js service
 
 StartUp DB: Mongo is setup and the database holds scores and the JS sends the information to update the users scores or if it is a new user they are added to the DB 
 
-StartUp login: broke the DB and stuff but eventually got the apis for login and update the scores leader board  as well as setting the players score to their lowest score (golf rules), login also creates a 
+StartUp login: broke the DB and stuff but eventually got the apis for login and update the scores leader board  as well as setting the players score to their lowest score (golf rules), login also creates a new user in the database if they do not exist  
