@@ -26,10 +26,10 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"> 
   </script>
   <script>
-    fetch("/api/scores") // path to JSON
+    fetch("/api/score") // path to JSON
       .then((response) => response.json())
       .then((data) => {
-            data.sort((a, b) => a.moves - b.moves);
+            data.sort((a, b) => a.moves - b.moves); 
             data.forEach((row, index) => {
               if (index === 0) {
                 row.rank = 1;
@@ -44,7 +44,7 @@
                 "<tr>" +
                   "<td>" + row.rank + "</td>" +
                   "<td>" + row.moves + "</td>" +
-                  "<td>" + row.name + "</td>" + 
+                  "<td>" + row.username + "</td>" + 
                 "</tr>"
               );
             });
@@ -122,7 +122,7 @@
 
     
         <a href="play.html" class="btn btn-danger btn-lg">Play Game!</a>
-        <a href="index.html" class="btn btn-primary btn-sm border-white">Log Out</a>
+        <a href="/auth/logout" class="btn btn-primary btn-sm border-white">Log Out</a>
       </main>
       </body>
 

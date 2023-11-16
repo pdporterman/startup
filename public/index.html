@@ -11,23 +11,7 @@
             integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
             crossorigin="anonymous" />
         <link rel="stylesheet" href="style.css" />
-        <script>
-        fetch("/api/scores")
-    .then(response => response.json())
-    .then(data => {
-    localStorage.setItem("users", JSON.stringify(data));
-    })
-    .catch(error => {
-    console.error("Error fetching and storing JSON data: " + error);
-});   
-</script>
-        <script>
-document.addEventListener("DOMContentLoaded", ()=> {
-    document.querySelector("form").addEventListener("submit", login);
-    
-})
-</script>
-</head>
+    </head>
 
     <body>
         <header>
@@ -38,16 +22,31 @@ document.addEventListener("DOMContentLoaded", ()=> {
         <main>
 
             <img class="img" src="images/detective.png" alt="main pic for now">
-            <form method="get" action="./main.html">
-                <input type="text" id="name" placeholder="Username" required /><br>
-                <input type="text" id="password" placeholder="Password" required /><br>
-                <button type="submit" id="submitLogin" class="btn btn-success">Login</button>
+            <form id="loginForm">
+                <input type="text" id="username" placeholder="Username" required /><br>
+                <input type="password" id="password" placeholder="Password" required /><br>
+                <button type="button" id="submitLogin" class="btn btn-success">Login</button>
             </form>
+
+            <script>
+                document.getElementById('submitLogin').addEventListener('click', function () {
+                    var username = document.getElementById('username').value;
+                    var password = document.getElementById('password').value;
+                    if (!username || !password) return;
+                    // Use fetch to send the form data to the server
+                    fetch('/auth/login', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ username: username, password: password })
+                    }).then(response => {
+                        localStorage.setItem("user", username);
+                        if (response.ok) window.location.href = '/main.html';
+                    });
+                });
+            </script>
         </main>
     </body>
     <footer>
-        <a href="https://github.com/pdporterman/startup" class="btn btn-warning">
-            GitHub</a>
-        </footer>
-<script type="module" src="./login.js"></script>
+        <a href="https://github.com/pdporterman/startup" class="btn btn-warning">GitHub</a>
+    </footer>
 </html>

@@ -27,3 +27,5 @@ Start Up JS: alright so I programmed play.js which contains all of the necessary
 Start up service: so I deployed the new simon then I created the node.js service which required express, my index.js has the middle ware taken care of, for my third party call I Have programmer jokes put in the consol log for people who are looking into the inspect info, then I have a scores thing in my index.js that writes the amount of moves to the user, if the user is not present it writes a new user using the username and password given at log in which were saved locally and then when you return to main it will display the updated table after fetching it from index.js to display 
 
 StartUp DB: Mongo is setup and the database holds scores and the JS sends the information to update the users scores or if it is a new user they are added to the DB 
+
+StartUp login: broke the DB and stuff but eventually got the apis for login and update the scores leader board  as well as setting the players score to their lowest score (golf rules), login also creates a 

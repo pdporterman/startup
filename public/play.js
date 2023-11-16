@@ -99,20 +99,12 @@ async function high_score(){
 }
 
 async function post_score(score) {
-    try {
-        let body = JSON.parse(localStorage.getItem('user'));
-        console.log(body);
-        body.moves = score
-        await fetch('/api/score', {
-            method: 'POST',
-            headers: {'content-type': 'application/json'},
-            body: JSON.stringify(body),
-            }).catch(err=>console.log);
-        // Store what the service gave us as the high scores
-    } catch {
-        // If there was an error then just track scores locally
-        this.updateScoresLocal(newScore);
-    }
+    await fetch('/api/score', {
+        method: 'POST',
+        headers: {'content-type': 'application/json'},
+        body: JSON.stringify({score:score}),
+        }).catch(err=>{console.log(err, score);});
+    // Store what the service gave us as the high scores
 }
 
 async function accuse(){
@@ -121,7 +113,7 @@ async function accuse(){
     if (input < 1 || input > 4){
         document.getElementById("text_box").innerHTML +="<br>"+ ("not a person please enter 1-4")
         func = 3
-        document.getElementById("text_box").innerHTML +="<br>"+ ("who do you want to accuse?")
+        document.getElementById("text_box").innerHTML +="<br>"+ (`who do you want to accuse?`);
     }
     else if (input == select){
         document.getElementById("moves").textContent = "YOU WIN! with " + count + " moves"
@@ -190,7 +182,7 @@ function get_action() {//func0
 }
 
 function set_var(ID) {
-    document.getElementById(ID).innerHTML +="<br>"+ JSON.parse(localStorage.getItem('user')).name + (", Step into the shoes of a seasoned detective as you investigate a chilling murder case involving a wealthy philanthropist. The prime suspects? The enigmatic and estranged children of the victim.  Can you unravel the web of deceit and uncover the truth in this high-stakes family feud?");
+    document.getElementById(ID).innerHTML +="<br>"+ localStorage.getItem('user') + (", Step into the shoes of a seasoned detective as you investigate a chilling murder case involving a wealthy philanthropist. The prime suspects? The enigmatic and estranged children of the victim.  Can you unravel the web of deceit and uncover the truth in this high-stakes family feud?");
     if (select === 1) {
         suspect = "Cambell"
         weapon = "knife"
