@@ -30,4 +30,4 @@ StartUp DB: Mongo is setup and the database holds scores and the JS sends the in
 
 StartUp login: broke the DB and stuff but eventually got the apis for login and update the scores leader board  as well as setting the players score to their lowest score (golf rules), login also creates a new user in the database if they do not exist  
 
-StartUp websocket, added a websocket that notifes users while playing the game of the scores of other users as the scores are submited to the database. added a bootstrap "toast" that noteifes the user of the other players scores before fading.  
+StartUp websocket, added a websocket that alerts users while playing the game of the scores of other users as the scores are submitted to the database. added a bootstrap "toast" that alerts the user of the other players scores before fading.  
