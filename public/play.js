@@ -99,12 +99,13 @@ async function high_score(){
 }
 
 async function post_score(score) {
+    sendMessage(`${localStorage.getItem('user')} scored ${score}`);
+    // Store what the service gave us as the high scores
     await fetch('/api/score', {
         method: 'POST',
         headers: {'content-type': 'application/json'},
         body: JSON.stringify({score:score}),
         }).catch(err=>{console.log(err, score);});
-    // Store what the service gave us as the high scores
 }
 
 async function accuse(){
@@ -196,4 +197,23 @@ function set_var(ID) {
         suspect = "Kim"
         weapon = "candel stick"
     } 
+}
+
+// Adjust the webSocket protocol to what is being used for HTTP
+const protocol = window.location.protocol === 'http:' ? 'ws' : 'wss';
+const socket = new WebSocket(`${protocol}://${window.location.host}/ws`);
+
+socket.onmessage = async (event) => {
+    const text = await event.data.text();
+    appendMsg(text);
+};
+
+function appendMsg(msg) {
+    document.querySelector('.toast-body').innerHTML = msg;
+    $('.toast').toast('show');
+    setTimeout(()=>$('.toast').toast('hide'), 2000);
+}
+
+function sendMessage(msg) {
+    socket.send(msg);
 }
