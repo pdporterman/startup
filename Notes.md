@@ -16,7 +16,8 @@
 7.Given the following MongoDB query
 ```JS
 { cost: { $gt: 10 }, name: /fran.*/}
-```select all of the matching documents.
+```
+select all of the matching documents.
 > grab all docs with a cost greater then 10 and any name with fran followed by any character
 8. How should you store user passwords in a database?
 > hash and salted 
@@ -48,7 +49,8 @@
 Assuming a HTML document with a
 ```html
 <div id="root"></div>
-```element, what content will the following React component generate?
+```
+element, what content will the following React component generate?
 ```jsx
       function Welcome(props) {
         return <h1>Hello, {props.name}</h1>;
@@ -69,7 +71,8 @@ Assuming a HTML document with a
 13. Assuming a HTML document with a
 >```html
 <div id="root"></div>
-```element, what content will the following React component generate?
+```
+element, what content will the following React component generate?
 ```jsx 
     function Numbers() { 
       const numbers = [1, 2, 3, 4, 5];
