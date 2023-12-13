@@ -70,7 +70,7 @@ element, what content will the following React component generate?
 ```
 > return everythin in the div tag to the react app 
 13. Assuming a HTML document with a
->```html
+```html
 <div id="root"></div>
 ```
 element, what content will the following React component generate?
